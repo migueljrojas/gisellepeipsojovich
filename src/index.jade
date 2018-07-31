@@ -2,3 +2,150 @@ extends _layouts/base
 
 block content
     main.home
+        section#home.home__hero
+            .embed-responsive.embed-responsive-16by9
+                iframe.embed-responsive-item()
+            a.home__next(href="#stylist")
+        
+        section.home__stylist#stylist
+            a.home__next(href="#fablab")
+            .container
+                .row
+                    .col-xs-24
+                        .home__stylist__heading
+                            img(src="/images/logo-stylist.png")
+            .stylist
+                .stylist__wrapper
+                    .container
+                        .row
+                            .col-xs-24
+                                .stylist__nav
+                                    button.stylist__nav__btn.stylist__nav__btn--prev
+                                        i.material-icons keyboard_arrow_left
+                                    button.stylist__nav__btn.stylist__nav__btn--next
+                                        i.material-icons keyboard_arrow_right
+                    ul.stylist__list
+                        each item in site.data.stylist
+                            li.stylist__item
+                                .stylist__item__holder
+                                    .stylist__item__cover
+                                        .stylist__item__img
+                                            img(src=item.cover)
+                                        .stylist__item__caption
+                                            h3.stylist__item__caption__title=item.title
+                                            p.stylist__item__caption__info!=item.info
+                                        button.stylist__item__toggle.stylist__item__toggle--open(href="#")
+                                    .stylist__item__player
+                                        .stylist__item__player__video
+                                            .stylist__item__video
+                                                iframe(src=item.video)
+                                        .stylist__item__player__data
+                                            .stylist__item__data
+                                                h3.stylist__item__data__title=item.title
+                                                p.stylist__item__data__info!=item.info
+                                                p.stylist__item__data__desc!=item.desc
+                                            button.stylist__item__toggle.stylist__item__toggle--close
+                .container
+                    .row
+                        .col-xs-24
+                            .stylist__scroller
+                                .stylist__scroller__guide
+                                    button.stylist__scroller__dragger
+                                    
+        section#fablab.home__fablab
+            a.home__next(href="#warehouse")
+            .container
+                .row
+                    .col-xs-24
+                        .home__fablab__heading
+                            .home__fablab__logo
+                                img(src="/images/logo-fablab.png")
+                                h2.home__fablab__caption Moda y Makeup
+                        .home__fablab__gallery
+                            ul.home__fablab__gallery__list
+                                each pic in site.data.fablab
+                                    li.home__fablab__gallery__item(data-gallery-img="pic-#{index}")
+                                        .home__fablab__gallery__img
+                                            img(src=pic.src)
+                                        p.home__fablab__gallery__caption= pic.caption 
+                            .home__fablab__gallery__nav
+                                button.home__fablab__gallery__btn.home__fablab__gallery__btn--prev
+                                    i.material-icons keyboard_arrow_left
+                                button.home__fablab__gallery__btn.home__fablab__gallery__btn--next
+                                    i.material-icons keyboard_arrow_right
+                                ul.home__fablab__gallery__dots
+                                    each pic, index in site.data.fablab
+                                        li(data-gallery-target="pic-#{index}")
+                                        
+        section#warehouse.home__warehouse
+            a.home__next(href="#clinicas")
+            .container
+                .col-xs-24.col-sm-10
+                    .home__warehouse__heading
+                        .home__warehouse__logo
+                            img(src="/images/logo-warehouse.png")
+                        p.home__warehouse__quote En un mismo lugar, todos los servicios. Una propuesta completa para ayudarte a producir, vestir y filmar
+                            
+                .col-xs-24.col-sm-14
+                    each list in site.data.warehouse
+                        h3.home__warehouse__subtitle=list.title
+                        ul.home__warehouse__features
+                            each item in list.features
+                                li= item
+                                
+        section#clinicas.home__clinicas
+            a.home__next(href="#directores")
+            .container
+                .col-xs-24.col-sm-10
+                    .home__clinicas__img
+                        img(src="/images/clinicas.jpg")
+                            
+                .col-xs-24.col-sm-14
+                    .home__clinicas__logo
+                        img(src="/images/logo-clinicas.png")
+                    ul.home__clinicas__features
+                        each item in site.data.clinicas
+                            li= item
+        
+        section#directores.home__directores
+            a.home__next(href="#marcas")
+            .container
+                .col-xs-24.col-sm-16.col-sm-offset-4
+                    ul.home__directores__list
+                        each item in site.data.directores
+                            li=item
+        
+        section#marcas.home__marcas
+            a.home__next(href="#contacto")
+            .home__marcas__heading
+                .home__marcas__logo
+                    img(src="/images/logo-marcas.png")
+                    h2.home__marcas__caption A las que vestimos
+                    
+            .home__marcas__list__wrapper
+                ul.home__marcas__list
+                    each item in site.data.marcas
+                        li.home__marcas__item
+                            img(src=item.logo, alt=item.name)
+                            
+        section#contacto.home__contacto
+            .container
+                .row
+                    .col-xs-24.col-sm-10
+                        .home__contacto__heading
+                            .home__contacto__logo
+                                img(src="/images/logo-marcas.png")
+                        .home__contacto__data
+                            p
+                                i.fa.fa-map-marker
+                                span Alvarez Thomas 46, BA, Argentina
+                            p
+                                i.fa.fa-envelope-o
+                                a(href="mailto:gisellepeipsojovich@yahoo.com.ar") gisellepeipsojovich@yahoo.com.ar
+                    .col-xs-24.col-sm-14
+                        .embed-responsive.-map
+                            iframe(src="")
+                        
+            
+                        
+                            

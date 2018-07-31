@@ -1,6 +1,26 @@
 [
     {
-        "name":"",
-        "url":""
+        "name":"Stylist",
+        "url":"#stylist"
+    },
+    {
+        "name":"Fablab",
+        "url":"#fablab"
+    },
+    {
+        "name":"Warehouse",
+        "url":"#warehouse"
+    },
+    {
+        "name":"Directores",
+        "url":"#directores"
+    },
+    {
+        "name":"Marcas",
+        "url":"#marcas"
+    },
+    {
+        "name":"Contacto",
+        "url":"#contacto"
     }
 ]
